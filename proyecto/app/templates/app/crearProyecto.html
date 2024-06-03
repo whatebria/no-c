@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+<div class="crearProyecto">
+    <div class="signupFrm">
+        <form id="formulario" action="" method="post" class="formProyecto">
+            {% csrf_token %}
+
+            <h1 class="title text-center">Crear Proyecto</h1>
+            
+            {{ crearProyecto|crispy }}
+
+            <button type="submit" class="submitBtn">Crear Proyecto</button>
+        </form>
+    </div>
+
+     <!-- Modificar proyectos -->
+     {% if proyecto_modificado %}
+     <div class="modify-project-success">
+         <p>Proyecto modificado exitosamente: {{ proyecto_modificado.nombreProyecto }}</p>
+     </div>
+     {% else %}
+     <div class="mdfFrm">
+         <form method="post" class="formProyecto">
+        <h1 class="title text-center">Modificar Proyecto</h1>
+
+             {% csrf_token %}
+             {{ modificar_proyecto_form | crispy }}
+             <button type="submit" class="submitBtn">Guardar Modificaciones</button>
+         </form>
+     </div>
+     {% endif %}
+</div>
+

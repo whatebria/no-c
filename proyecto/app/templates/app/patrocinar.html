@@ -1,0 +1,12 @@
+
+<div class="spnsrFrm">
+
+    <form method="post" class="formProyecto">
+    <h1 class="title text-center">Patrocinar</h1>
+
+        {% csrf_token %}
+        {{ patrocinar_form.as_p }}
+        <button type="submit" class="submitBtn">Submit</button>
+    </form>
+</div>
+    

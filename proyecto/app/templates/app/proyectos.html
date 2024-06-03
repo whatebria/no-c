@@ -1,0 +1,48 @@
+<!-- Filtro por patrocinio -->
+<div class="filtro d-flex justify-content-end">
+  <form action="" method="get" class="filtro">
+    <select title="filtro" name="filtro" id="" onchange="this.form.submit()">
+      <option value="">Filtrar</option>
+      <option value="con">Con Patrocinio</option>
+    <option value="sin">Sin Patrocinio</option>
+    <option value="Todos">Todos</option>
+    </select>
+  </form>
+</div>
+
+
+<!-- TABLA DE PROYECTOS -->
+<div class="col p-0 tablet">
+  <table class="table caption-top table-responsive table-hover">
+    <h5 class="text-center" style="color: aliceblue;">Portafolio</h5>
+      <h2 class="text-center tabletxt">Proyectos Presentados</h2>
+      <thead class="table">
+          <tr>
+              <th scope="col">Nombre Proyecto</th>
+              <th scope="col">Estudiante</th>
+              <th scope="col">Tema</th>
+              <th scope="col">Profesor</th>
+              <th scope="col">Patrocinio</th>
+
+          </tr>
+      </thead>
+      <tbody class="table-group-divider">
+          {% for proyecto in Proyectos %}
+              <tr>
+                  <th scope="row">{{ proyecto.nombreProyecto }}</th>
+                  <td>{{ proyecto.estudiante }}</td>
+                  <td>{{ proyecto.tema }}</td>
+                  <td>{{ proyecto.profesorPatrocinador.username }}</td>
+                    <td>
+                      {% if proyecto.patrocinio %}
+                        Si
+                      {% else %}
+                        No
+                      {% endif %}
+                    </td>
+                  </tr>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
